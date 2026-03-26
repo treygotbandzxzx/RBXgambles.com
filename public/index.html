@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RBXGambles</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <img src="https://i.imgur.com/0qgkSYP.png" alt="RBXGambles" class="brand-logo" />
+      <div class="brand-name">RBXGambles</div>
+    </div>
+    <div class="right-buttons">
+      <button id="loginBtn" class="btn-main">Login</button>
+      <div id="topOnline" class="online-badge">0 online</div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="left-panel">
+      <h2>Chat <span id="chatCount">0 online</span></h2>
+      <div id="chatBox" class="chat-box"></div>
+      <div class="chat-input-row"><input id="chatInput" placeholder="Type a message" /><button id="chatSend">Send</button></div>
+    </aside>
+
+    <main class="right-panel">
+      <section class="card" id="coinflip">
+        <h3>Coinflip</h3>
+        <div class="field-row"><Label>Item</label><select id="coinItem"></select></div>
+        <div class="field-row"><label>Side</label><select id="coinSide"><option value="heads">Heads</option><option value="tails">Tails</option></select></div>
+        <button id="coinflipBtn" class="btn-main">Create Coinflip</button>
+        <div id="coinflipStatus" class="result"></div>
+      </section>
+
+      <section class="card" id="upgrader">
+        <h3>Upgrader</h3>
+        <div class="field-row"><label>From</label><select id="upgradeFrom"></select></div>
+        <div class="field-row"><label>To</label><select id="upgradeTo"></select></div>
+        <button id="upgradeBtn" class="btn-main">Spin Upgrade</button>
+        <div class="wheel-wrap"><div id="spinWheel" class="wheel"></div></div>
+        <div id="upgradeStatus" class="result"></div>
+      </section>
+
+      <section class="card" id="jackpot">
+        <h3>Jackpot</h3>
+        <div class="field-row"><label>Item</label><select id="jackpotItem"></select></div>
+        <button id="jackpotBtn" class="btn-main">Enter Jackpot</button>
+        <div id="jackpotStatus" class="result"></div>
+      </section>
+
+      <section class="card" id="adminPanel">
+        <h3>Admin</h3>
+        <div class="field-row"><label>Grant admin</label><input id="adminUsername" placeholder="Username" /></div>
+        <button id="grantAdminBtn" class="btn-main">Grant</button>
+        <div id="adminStatus" class="result"></div>
+      </section>
+
+      <section class="card" id="inventoryCard">
+        <h3>Inventory</h3>
+        <ul id="inventoryList"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Login</h3>
+      <input id="userNameRole" placeholder="Enter Roblox username" />
+      <button id="checkPfpBtn" class="btn-main">Check Roblox Profile</button>
+      <img id="pfpImg" class="pfp-img" src="" alt="pfp" />
+      <div id="pfpConfirm" class="confirm-row" style="display:none;">
+        <span>Is this you?</span>
+        <button id="pfpYes" class="btn-main">Yes</button>
+        <button id="pfpNo" class="btn-secondary">No</button>
+      </div>
+      <div id="phraseContainer" style="display:none;">
+        <p id="loginPhrase"></p>
+        <textarea id="robloxBio" placeholder="Paste your Roblox bio containing phrase"></textarea>
+        <button id="verifyBtn" class="btn-main">Verify</button>
+      </div>
+      <div id="loginStatus" class="result"></div>
+      <button id="closeModal" class="btn-secondary">Close</button>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

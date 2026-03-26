@@ -1,0 +1,14 @@
+{
+  "name": "rbxgambles",
+  "version": "1.0.0",
+  "description": "RBXGambles prototype",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.4",
+    "express": "^4.22.1",
+    "socket.io": "^4.8.3"
+  }
+}
